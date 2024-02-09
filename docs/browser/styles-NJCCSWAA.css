@@ -1,0 +1,1 @@
+@keyframes scroll{0%{background-position:0% 0%}to{background-position:100% 100%}}.scrolling-hearts{animation:scroll 10s linear infinite;background:url("./media/heart-D57NCRWW.png") repeat}

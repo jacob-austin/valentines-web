@@ -1,0 +1,12 @@
+<div class="container">
+  <img *ngIf="!yesButtonClicked" [src]="gifPath" alt="Valentine's GIF">
+  <div *ngIf="!yesButtonClicked" class="button-container">
+    <button class="yes-button" (click)="showYes()">Yes</button>
+    <button class="no-button" (click)="showNo()">No</button>
+  </div>
+  <div *ngIf="yesButtonClicked" >
+    <div class="text-box">
+      <h1>WOW! I can't believe it!</h1>
+    </div>
+  </div>
+</div>

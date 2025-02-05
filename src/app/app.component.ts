@@ -8,7 +8,7 @@ import { AnimationPlayer, AnimationBuilder, animate, style, transition, trigger 
   animations: [
     trigger('moveAnimation', [
       transition('* => *', [
-        animate('0.5s ease-out', style({ transform: '{{transform}}' }))
+        animate('0.5s ease-out', style({ transform: 'translate(0, 0)' }))
       ])
     ])
   ]
@@ -35,7 +35,8 @@ export class AppComponent implements AfterViewInit{
   position: {left: number, top: number} = { left: 100, top: 100 };
 
   constructor(
-    private renderer: Renderer2,
+    private renderer: Renderer2, 
+    private builder: AnimationBuilder,
     private cdr: ChangeDetectorRef
     ) {}
 
@@ -65,11 +66,6 @@ export class AppComponent implements AfterViewInit{
       left: Math.floor(Math.random() * maxX),
       top: Math.floor(Math.random() * maxY)
     };
-  }
-
-  getTransform() {
-    // TODO: Fix this to work with absolute element, this is a placeholder for now.
-    return `translate(${0}px, ${0}px)`;
   }
 
   showYes() {

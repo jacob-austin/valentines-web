@@ -12,7 +12,7 @@
       *ngIf="showNoButton"
       #noButton
       class="runaway-button" 
-      [@moveAnimation]="{ value: position, params: { transform: getTransform() } }"
+      @moveAnimation
       [style.left.px]="position.left"
       [style.top.px]="position.top"
       (mouseover)="moveButton()"

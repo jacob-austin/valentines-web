@@ -35,8 +35,7 @@ export class AppComponent implements AfterViewInit{
   position: {left: number, top: number} = { left: 100, top: 100 };
 
   constructor(
-    private renderer: Renderer2, 
-    private builder: AnimationBuilder,
+    private renderer: Renderer2,
     private cdr: ChangeDetectorRef
     ) {}
 
@@ -69,15 +68,24 @@ export class AppComponent implements AfterViewInit{
   }
 
   getTransform() {
-    return `translate(${this.position.left}px, ${this.position.top}px)`;
+    // TODO: Fix this to work with absolute element, this is a placeholder for now.
+    return `translate(${0}px, ${0}px)`;
   }
 
   showYes() {
-    this.renderer.addClass(document.body, 'scrolling-hearts');
-    this.yesButtonClicked = true;
+    this.clickCount++;
+    if (this.clickCount >= 2) {
+      this.renderer.addClass(document.body, 'scrolling-hearts');
+      this.yesButtonClicked = true;
+      this.showNoButton = false;
+    } else {
+      this.showNoButton ? this.setInitialButtonPosition() : this.toggleNoButton();
+      this.gifPath = 'assets/marryMe.gif';
+    }
   }
 
   toggleNoButton() {
     this.showNoButton = !this.showNoButton;
+    if (this.showNoButton) this.setInitialButtonPosition();
   }
 }

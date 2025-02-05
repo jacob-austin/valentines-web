@@ -1,12 +1,27 @@
-<div class="container">
+<div class="container" #container>
   <img *ngIf="!yesButtonClicked" [src]="gifPath" alt="Valentine's GIF">
-  <div *ngIf="!yesButtonClicked" class="button-container">
-    <button class="yes-button" (click)="showYes()">Yes</button>
-    <button class="no-button" (click)="showNo()">No</button>
+  <div *ngIf="!yesButtonClicked" class="button-container" #buttonContainer>
+    <button 
+      #yesButton
+      class="static-button" 
+      (click)="showYes()">
+      Yes
+    </button>
   </div>
+  <button 
+      *ngIf="showNoButton"
+      #noButton
+      class="runaway-button" 
+      @moveAnimation
+      [style.left.px]="position.left"
+      [style.top.px]="position.top"
+      (mouseover)="moveButton()"
+      (click)="toggleNoButton()">
+      No
+    </button>
   <div *ngIf="yesButtonClicked" >
     <div class="text-box">
-      <h1>WOW! I can't believe it!</h1>
+      <h1>u r my wife & valentine now 😊</h1>
     </div>
   </div>
 </div>

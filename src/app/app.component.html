@@ -7,17 +7,18 @@
       (click)="showYes()">
       Yes
     </button>
-    <button 
+  </div>
+  <button 
+      *ngIf="showNoButton"
       #noButton
       class="runaway-button" 
       @moveAnimation
       [style.left.px]="position.left"
       [style.top.px]="position.top"
       (mouseover)="moveButton()"
-      (click)="moveButton()">
+      (click)="toggleNoButton()">
       No
     </button>
-  </div>
   <div *ngIf="yesButtonClicked" >
     <div class="text-box">
       <h1>u r my wife & valentine now 😊</h1>

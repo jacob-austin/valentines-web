@@ -9,6 +9,7 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   
   img {
@@ -31,13 +32,14 @@
 
   
   .button-container {
-    display: flex;
-    position: relative;
-    gap: 20px;
+    position: absolute;
+    left: 47%;
+    top: 80%;
+    transform: translate(-50%, -50%);
   }
   
-  .button-container button {
-    margin: 0 5px; /* Add some space between the buttons */
+  button {
+    margin: 0 5px;
     padding: 10px 20px;
     color: white;
     border: none;

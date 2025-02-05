@@ -28,10 +28,12 @@
     display: grid;
     place-items: center;
   }
+
   
   .button-container {
-    margin-top: 20px; /* Add some space between the image and buttons */
-    display: flex; /* Use flexbox for layout */
+    display: flex;
+    position: relative;
+    gap: 20px;
   }
   
   .button-container button {
@@ -43,12 +45,15 @@
     cursor: pointer;
   }
 
-  .yes-button {
+  .static-button {
     background-color:green;
+    position: relative;
   }
 
-  .no-button {
+  .runaway-button {
     background-color:red;
+    position: absolute;
+    transition: transform 0.3s ease-out;
   }
 
   
